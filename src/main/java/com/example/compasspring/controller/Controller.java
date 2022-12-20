@@ -37,8 +37,15 @@ public class Controller {
         String side="Не найденно";
         for (var f:forwards.entrySet()){
             String []startAndFinish =f.getValue().split("-");
-            if (Integer.parseInt(startAndFinish[0]) > degree && Integer.parseInt(startAndFinish[1]) < degree ){
-                side=f.getKey();
+            if (Integer.parseInt(startAndFinish[0]) >Integer.parseInt(startAndFinish[1])){
+                if (Integer.parseInt(startAndFinish[0]) >= degree && Integer.parseInt(startAndFinish[1]) >= degree ){
+                    side=f.getKey();
+                }
+            }else {
+                if (Integer.parseInt(startAndFinish[0]) <= degree && Integer.parseInt(startAndFinish[1]) >= degree) {
+                    side = f.getKey();
+                }
+
             }
         }
 
